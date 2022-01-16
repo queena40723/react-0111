@@ -29,7 +29,7 @@ import ProductItem from './ProductItem'
 // ]
 
 function OrderList(props) {
-  const { products, counts, setCounts, productList, setProductList } = props
+  const { counts, setCounts, productList, setProductList } = props
   return (
     <>
       <div className="col-md-8 cart">
@@ -45,7 +45,7 @@ function OrderList(props) {
             </div>
           </div>
         </div>
-        {products.map((v, i) => {
+        {productList.map((v, i) => {
           return (
             <ProductItem
               key={v.id}
@@ -60,19 +60,20 @@ function OrderList(props) {
                 //對狀態做運算
                 //更新陣列中本商品索引值
                 newCounts[i] = newCount < 1 ? 1 : newCount
+
                 //更新後的狀態，設定回原本的狀態裡去
                 setCounts(newCounts)
               }}
               productListItem={v.id}
               productList
               setProductList={(deleteItem) => {
-                console.log(deleteItem)
+                // console.log(deleteItem)
                 const newProductList = [...productList]
                 let lists = newProductList.filter((item) => {
                   return item.id !== deleteItem
                 })
                 setProductList(lists)
-                console.log(lists)
+                // console.log(lists)
               }}
             />
           )

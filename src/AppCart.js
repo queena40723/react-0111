@@ -1,7 +1,6 @@
 import './AppCart.css'
 import Summary from './components/Summary'
 import OrderList from './components/OrderList'
-
 import { useState } from 'react'
 
 const products = [
@@ -44,10 +43,11 @@ function App() {
   // const [counts, setCounts] = useState([1, 1, 1])
   const [productList, setProductList] = useState(products)
   const [counts, setCounts] = useState(initState(productList)) //把products陣列丟進初始化函式裡，計算有多少種商品
-  //const [counts, setCounts] = useState(Array(products.length).fill(1))
+  // const [counts, setCounts] = useState(Array(products.length).fill(1))
 
   //Summary
   // 計算目前所有的商品數量
+  console.log(productList)
   const productCount = () => {
     let totalCount = 0
     for (let i = 0; i < productList.length; i++) {
@@ -64,13 +64,13 @@ function App() {
     }
     return totalamount
   }
-  console.log(total())
+  // console.log(total())
 
   return (
     <div className="card">
       <div className="row">
         <OrderList
-          products={productList}
+          // products={productList}
           counts={counts}
           setCounts={setCounts}
           productList={productList}
